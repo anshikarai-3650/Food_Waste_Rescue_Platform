@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Food Waste Rescue Platform</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        🍃 FoodRescue
+    </div>
+
+    <nav>
+        <a href="#" onclick="showPage('home')">Home</a>
+        <a href="#" onclick="showPage('about')">About</a>
+        <a href="#" onclick="showPage('donate')">Donate Food</a>
+        <a href="#" onclick="showPage('available')">Available Food</a>
+    </nav>
+
+    <button class="login-btn" onclick="showPage('login')">
+        Login
+    </button>
+
+</header>
+
+
+<!-- ================= HOME ================= -->
+
+<section id="home" class="page active">
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <span class="tag">
+                🌱 Reduce Food Waste
+            </span>
+
+            <h1>
+                Rescue Food.<br>
+                <span>Feed Communities.</span>
+            </h1>
+
+            <p>
+                Our platform connects restaurants, hotels, households
+                and food donors with NGOs and volunteers to rescue
+                surplus food before it becomes waste.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button onclick="showPage('donate')">
+                    Donate Food
+                </button>
+
+                <button class="outline-btn"
+                        onclick="showPage('available')">
+                    Find Food
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+
+            <div class="food-card">
+
+                <div class="food-icon">
+                    🍲
+                </div>
+
+                <h3>
+                    Today's Food Rescue
+                </h3>
+
+                <p>
+                    25 meals rescued
+                </p>
+
+                <div class="progress">
+                    <div></div>
+                </div>
+
+                <small>
+                    Helping reduce food waste
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- STATS -->
+
+    <div class="stats">
+
+        <div>
+            <h2>1,250+</h2>
+            <p>Meals Rescued</p>
+        </div>
+
+        <div>
+            <h2>320+</h2>
+            <p>Food Donors</p>
+        </div>
+
+        <div>
+            <h2>85+</h2>
+            <p>NGO Partners</p>
+        </div>
+
+        <div>
+            <h2>750kg</h2>
+            <p>Food Saved</p>
+        </div>
+
+    </div>
+
+
+    <!-- HOW IT WORKS -->
+
+    <div class="section">
+
+        <h2>
+            How Food Rescue Works
+        </h2>
+
+        <p class="section-subtitle">
+            A simple process connecting surplus food with people
+            and organizations that need it.
+        </p>
+
+        <div class="steps">
+
+            <div class="step">
+
+                <div class="step-icon">
+                    🍱
+                </div>
+
+                <h3>
+                    1. Donate
+                </h3>
+
+                <p>
+                    Donors list their safe surplus food on the platform.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-icon">
+                    🔎
+                </div>
+
+                <h3>
+                    2. Discover
+                </h3>
+
+                <p>
+                    NGOs and volunteers find available food nearby.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-icon">
+                    🤝
+                </div>
+
+                <h3>
+                    3. Claim
+                </h3>
+
+                <p>
+                    NGOs claim suitable food donations.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-icon">
+                    ❤️
+                </div>
+
+                <h3>
+                    4. Rescue
+                </h3>
+
+                <p>
+                    Food is collected and distributed to communities.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about" class="page">
+
+    <div class="simple-page">
+
+        <h1>
+            About FoodRescue
+        </h1>
+
+        <p>
+            FoodRescue is a community-based food waste management
+            platform designed to reduce the amount of edible food
+            that is thrown away.
+        </p>
+
+        <p>
+            The platform allows individuals, restaurants, hotels
+            and organizations to donate surplus food.
+        </p>
+
+        <p>
+            NGOs and volunteers can view available donations,
+            claim food and coordinate collection.
+        </p>
+
+
+        <div class="mission">
+
+            <h2>
+                Our Mission
+            </h2>
+
+            <p>
+                Reduce food waste while helping communities
+                access surplus food safely and efficiently.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= LOGIN ================= -->
+
+<section id="login" class="page">
+
+    <div class="auth-container">
+
+        <div class="auth-card">
+
+            <h1>
+                Welcome Back
+            </h1>
+
+            <p>
+                Login to your FoodRescue account
+            </p>
+
+
+            <form onsubmit="loginUser(event)">
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="Enter your email"
+                    required
+                >
+
+
+                <label>
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Enter password"
+                    required
+                >
+
+
+                <label>
+                    Login As
+                </label>
+
+                <select id="loginRole">
+
+                    <option value="donor">
+                        Food Donor
+                    </option>
+
+                    <option value="ngo">
+                        NGO / Volunteer
+                    </option>
+
+                    <option value="admin">
+                        Administrator
+                    </option>
+
+                </select>
+
+
+                <button type="submit">
+                    Login
+                </button>
+
+            </form>
+
+
+            <p class="register-text">
+
+                Don't have an account?
+
+                <a href="#" onclick="showPage('register')">
+                    Create Account
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= REGISTER ================= -->
+
+<section id="register" class="page">
+
+    <div class="auth-container">
+
+        <div class="auth-card">
+
+            <h1>
+                Create Account
+            </h1>
+
+            <p>
+                Join the food rescue community
+            </p>
+
+
+            <form onsubmit="registerUser(event)">
+
+                <label>
+                    Full Name
+                </label>
+
+                <input
+                    id="registerName"
+                    type="text"
+                    placeholder="Enter your name"
+                    required
+                >
+
+
+                <label>
+                    Email
+                </label>
+
+                <input
+                    id="registerEmail"
+                    type="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+
+                <label>
+                    Phone Number
+                </label>
+
+                <input
+                    id="registerPhone"
+                    type="tel"
+                    placeholder="Enter phone number"
+                >
+
+
+                <label>
+                    Password
+                </label>
+
+                <input
+                    id="registerPassword"
+                    type="password"
+                    placeholder="Create password"
+                    required
+                >
+
+
+                <label>
+                    Account Type
+                </label>
+
+                <select id="registerRole">
+
+                    <option value="donor">
+                        Food Donor
+                    </option>
+
+                    <option value="ngo">
+                        NGO / Volunteer
+                    </option>
+
+                </select>
+
+
+                <button type="submit">
+                    Create Account
+                </button>
+
+            </form>
+
+
+            <p class="register-text">
+
+                Already have an account?
+
+                <a href="#" onclick="showPage('login')">
+                    Login
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= DONATE ================= -->
+
+<section id="donate" class="page">
+
+    <div class="dashboard">
+
+        <div class="dashboard-header">
+
+            <div>
+
+                <h1>
+                    Donate Surplus Food
+                </h1>
+
+                <p>
+                    Help rescue food instead of throwing it away.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="donation-container">
+
+            <div class="form-card">
+
+                <h2>
+                    Food Donation Details
+                </h2>
+
+
+                <form onsubmit="addDonation(event)">
+
+                    <label>
+                        Food Name
+                    </label>
+
+                    <input
+                        id="foodName"
+                        type="text"
+                        placeholder="Example: Vegetable Biryani"
+                        required
+                    >
+
+
+                    <label>
+                        Food Type
+                    </label>
+
+                    <select id="foodType">
+
+                        <option>
+                            Vegetarian
+                        </option>
+
+                        <option>
+                            Non-Vegetarian
+                        </option>
+
+                        <option>
+                            Bakery
+                        </option>
+
+                        <option>
+                            Fruits
+                        </option>
+
+                        <option>
+                            Packaged Food
+                        </option>
+
+                    </select>
+
+
+                    <label>
+                        Quantity
+                    </label>
+
+                    <input
+                        id="foodQuantity"
+                        type="number"
+                        min="1"
+                        placeholder="Number of meals"
+                        required
+                    >
+
+
+                    <label>
+                        Expiry / Best Before
+                    </label>
+
+                    <input
+                        id="foodExpiry"
+                        type="datetime-local"
+                        required
+                    >
+
+
+                    <label>
+                        Pickup Location
+                    </label>
+
+                    <input
+                        id="foodLocation"
+                        type="text"
+                        placeholder="Enter pickup location"
+                        required
+                    >
+
+
+                    <label>
+                        Description
+                    </label>
+
+                    <textarea
+                        id="foodDescription"
+                        placeholder="Additional information about the food"
+                    ></textarea>
+
+
+                    <button type="submit">
+                        Submit Donation
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h2>
+                    Donation Guidelines
+                </h2>
+
+                <ul>
+
+                    <li>
+                        Food should be safe for consumption.
+                    </li>
+
+                    <li>
+                        Mention accurate expiry information.
+                    </li>
+
+                    <li>
+                        Keep food properly packed.
+                    </li>
+
+                    <li>
+                        Provide an accurate pickup location.
+                    </li>
+
+                    <li>
+                        Avoid donating spoiled food.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= AVAILABLE FOOD ================= -->
+
+<section id="available" class="page">
+
+    <div class="dashboard">
+
+        <div class="dashboard-header">
+
+            <div>
+
+                <h1>
+                    Available Food
+                </h1>
+
+                <p>
+                    Find surplus food available for rescue.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="search-container">
+
+            <input
+                id="searchFood"
+                type="text"
+                placeholder="Search food or location..."
+                onkeyup="searchFood()"
+            >
+
+        </div>
+
+
+        <div id="foodList" class="food-grid">
+
+            <!-- Food cards inserted using JavaScript -->
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= DONOR DASHBOARD ================= -->
+
+<section id="donorDashboard" class="page">
+
+    <div class="dashboard">
+
+        <h1>
+            Donor Dashboard
+        </h1>
+
+        <p>
+            Manage your food donations.
+        </p>
+
+
+        <div class="dashboard-cards">
+
+            <div class="dashboard-stat">
+
+                <span>
+                    🍱
+                </span>
+
+                <h2 id="totalDonations">
+                    0
+                </h2>
+
+                <p>
+                    Total Donations
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-stat">
+
+                <span>
+                    ❤️
+                </span>
+
+                <h2 id="rescuedDonations">
+                    0
+                </h2>
+
+                <p>
+                    Rescued
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-stat">
+
+                <span>
+                    ⏳
+                </span>
+
+                <h2 id="availableDonations">
+                    0
+                </h2>
+
+                <p>
+                    Available
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <button onclick="showPage('donate')">
+            + Add New Donation
+        </button>
+
+
+        <h2 class="table-title">
+            My Donations
+        </h2>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Food
+                        </th>
+
+                        <th>
+                            Quantity
+                        </th>
+
+                        <th>
+                            Location
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="donorTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= NGO DASHBOARD ================= -->
+
+<section id="ngoDashboard" class="page">
+
+    <div class="dashboard">
+
+        <h1>
+            NGO / Volunteer Dashboard
+        </h1>
+
+        <p>
+            Find and claim available food donations.
+        </p>
+
+
+        <div class="dashboard-cards">
+
+            <div class="dashboard-stat">
+
+                <span>
+                    🍱
+                </span>
+
+                <h2 id="ngoAvailable">
+                    0
+                </h2>
+
+                <p>
+                    Available Food
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-stat">
+
+                <span>
+                    🤝
+                </span>
+
+                <h2 id="ngoClaims">
+                    0
+                </h2>
+
+                <p>
+                    My Claims
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div id="ngoFoodList" class="food-grid">
+
+</div>
+
+<h3>My Claimed Food</h3>
+
+<div id="ngoClaimsList" class="food-grid">
+
+</div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= ADMIN ================= -->
+
+
+<section id="adminDashboard" class="page">
+    <div class="dashboard admin-dashboard">
+
+        <div class="admin-header">
+            <div>
+                <p class="admin-eyebrow">FOODRESCUE • MANAGEMENT</p>
+                <h1>Administrator Dashboard</h1>
+                <p class="admin-subtitle">
+                    Welcome back! Here's what's happening on your platform.
+                </p>
+            </div>
+
+            <div class="admin-status">
+                <span class="status-dot"></span>
+                Platform Overview
+            </div>
+        </div>
+
+        <div class="admin-section-heading">
+            <div>
+                <h2>Platform Statistics</h2>
+                <p>A quick overview of your platform activity.</p>
+            </div>
+        </div>
+
+        <div class="dashboard-cards">
+
+            <div class="dashboard-stat">
+                <span>👥</span>
+                <h2 id="adminUsers">0</h2>
+                <p>Registered Users</p>
+                <small>Donors, NGOs and admins</small>
+            </div>
+
+            <div class="dashboard-stat">
+                <span>🍱</span>
+                <h2 id="adminDonations">0</h2>
+                <p>Total Donations</p>
+                <small>Food donations recorded</small>
+            </div>
+
+            <div class="dashboard-stat">
+                <span>❤️</span>
+                <h2 id="adminClaims">0</h2>
+                <p>Total Claims</p>
+                <small>Food rescue requests recorded</small>
+            </div>
+
+        </div>
+
+        <div class="admin-panel">
+            <div class="admin-panel-icon">📊</div>
+
+            <div class="admin-panel-content">
+                <h2>Manage Your Platform</h2>
+                <p>
+                    Review food donations and monitor rescue activity
+                    across the FoodRescue platform.
+                </p>
+            </div>
+
+            <button class="admin-action-button"
+                    onclick="showPage('available')">
+                View Donations <span>→</span>
+            </button>
+        </div>
+
+        <p class="admin-footer-note">
+            FoodRescue Administration • Helping good food reach people in need.
+        </p>
+
+    </div>
+</section>
+
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <h2>
+            🍃 FoodRescue
+        </h2>
+
+        <p>
+            Rescue food. Reduce waste. Build a better community.
+        </p>
+
+        <p>
+            © 2026 Food Waste Rescue Platform
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
